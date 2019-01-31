@@ -8,13 +8,14 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+
 import java.io.IOException
 import java.io.RandomAccessFile
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    val language:Language = Language.Kotlin
+    val language:Language = Language.C
     var isStopped:Boolean = false
     var count = 8
     var threadList: MutableList<Thread> = ArrayList()
@@ -23,7 +24,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object
     {
-
         // Used to load the 'native-lib' library on application startup.
         init {
             System.loadLibrary("native-lib")
@@ -222,6 +222,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     ///////////////////////////////////////////////////////////////////////////////////
+
     external fun stringFromJNI(): String
     external fun intFromJNI(): String
     external fun createThread(threadCount:Int)
